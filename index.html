@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Stack Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --secondary: #10b981;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .dark {
+            --primary: #60a5fa;
+            --secondary: #34d399;
+            --dark: #f8fafc;
+            --light: #1e293b;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section {
+            padding: 5rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark .card {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid var(--light);
+        }
+
+        .dark .timeline-item::before {
+            border-color: var(--dark);
+        }
+
+        .transition-all {
+            transition: all 0.3s ease;
+        }
+
+        .custom-bg {
+            background: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-800 dark:bg-gray-900 dark:text-white transition-all">
+  <!-- Header/Navigation -->
+<header class="sticky top-0 z-50 backdrop-blur-sm bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center py-4">
+      
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <!-- <span class="text-2xl font-bold gradient-text">DevPort</span> -->
+      </div>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex items-center space-x-8">
+        <a href="#home" class="font-medium hover:text-primary transition-colors">Home</a>
+        <a href="#skills" class="font-medium hover:text-primary transition-colors">Skills</a>
+        <a href="#projects" class="font-medium hover:text-primary transition-colors">Projects</a>
+        <a href="#experience" class="font-medium hover:text-primary transition-colors">Experience</a>
+        <a href="#contact" class="font-medium hover:text-primary transition-colors">Contact</a>
+        <a href="about.html" class="font-medium hover:text-primary transition-colors">About</a>
+		
+      </nav>
+
+      <!-- Mobile Toggle -->
+      <button id="menu-toggle" class="md:hidden text-gray-700 dark:text-gray-200 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full backdrop-blur-md bg-white/80 dark:bg-gray-900/80 border-t border-gray-200 dark:border-gray-800 shadow-lg transition-all duration-300 ease-in-out">
+    <div class="px-4 py-3 space-y-2 backdrop-blur-sm bg-white/80">
+      <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">Home</a>
+      <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">Skills</a>
+      <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">Projects</a>
+      <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">Experience</a>
+      <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">Contact</a>
+    </div>
+  </div>
+</header>
+
+<!-- JS for Mobile Toggle -->
+<script>
+  const toggleBtn = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  toggleBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>
+
+
+
+
+    <!-- Hero Section -->
+    <section id="home" class="section custom-bg min-h-screen flex items-center justify-center">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="text-4xl md:text-6xl font-extrabold mb-4">
+                        Hi, I'm <span class="gradient-text">Kaustubh Mahamuni</span>
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6">
+                        Full Stack Developer
+                    </h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-lg">
+                        I build scalable web applications with modern technologies. Passionate about creating seamless user experiences with clean, efficient code.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#contact" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors">
+                            Contact Me
+                        </a>
+                        <a href="#projects" class="px-6 py-3 border border-blue-600 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg font-medium transition-colors">
+                            View Work
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-500 to-emerald-500 rounded-xl opacity-75 blur-xl animate-blob"></div>
+                    <div class="relative rounded-xl overflow-hidden shadow-2xl">
+                        <img src="Hero.jpeg" alt="Professional portrait of a full stack developer with a modern office background" class="w-full h-auto object-cover" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Skills & Technologies</h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Proficient in a variety of modern technologies across the full stack
+                </p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <div class="card p-6 text-center hover:shadow-lg">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-blue-50 dark:bg-blue-900/20 rounded-full">
+                        <i class="fab fa-js text-blue-600 dark:text-blue-400 text-3xl"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">JavaScript</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">ES6+, TypeScript</p>
+                </div>
+                <div class="card p-6 text-center hover:shadow-lg">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-purple-50 dark:bg-purple-900/20 rounded-full">
+                        <i class="fab fa-react text-purple-600 dark:text-purple-400 text-3xl"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">React</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Next.js, Redux</p>
+                </div>
+                <div class="card p-6 text-center hover:shadow-lg">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-emerald-50 dark:bg-emerald-900/20 rounded-full">
+                        <i class="fab fa-node-js text-emerald-600 dark:text-emerald-400 text-3xl"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">Node.js</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Express, NestJS</p>
+                </div>
+                <div class="card p-6 text-center hover:shadow-lg">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-red-50 dark:bg-red-900/20 rounded-full">
+                        <i class="fab fa-html5 text-red-600 dark:text-red-400 text-3xl"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">HTML/CSS</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Tailwind, Sass</p>
+                </div>
+                <div class="card p-6 text-center hover:shadow-lg">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-green-50 dark:bg-green-900/20 rounded-full">
+                        <i class="fas fa-database text-green-600 dark:text-green-400 text-3xl"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">Databases</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">MongoDB, PostgreSQL</p>
+                </div>
+                <div class="card p-6 text-center hover:shadow-lg">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-blue-50 dark:bg-blue-900/20 rounded-full">
+                        <i class="fab fa-aws text-blue-600 dark:text-blue-400 text-3xl"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">Cloud</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">AWS, GCP</p>
+                </div>
+                <div class="card p-6 text-center hover:shadow-lg">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-yellow-50 dark:bg-yellow-900/20 rounded-full">
+                        <i class="fas fa-server text-yellow-600 dark:text-yellow-400 text-3xl"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">DevOps</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Docker, Kubernetes</p>
+                </div>
+                <div class="card p-6 text-center hover:shadow-lg">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-indigo-50 dark:bg-indigo-900/20 rounded-full">
+                        <i class="fas fa-code-branch text-indigo-600 dark:text-indigo-400 text-3xl"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">Git</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">GitHub, GitLab</p>
+                </div>
+                <div class="card p-6 text-center hover:shadow-lg">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-pink-50 dark:bg-pink-900/20 rounded-full">
+                        <i class="fab fa-figma text-pink-600 dark:text-pink-400 text-3xl"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">UI/UX</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Figma, Adobe XD</p>
+                </div>
+                <div class="card p-6 text-center hover:shadow-lg">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-orange-50 dark:bg-orange-900/20 rounded-full">
+                        <i class="fas fa-mobile-alt text-orange-600 dark:text-orange-400 text-3xl"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">Mobile</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">React Native</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+	<!-- Projects Section -->
+<!-- Projects Section -->
+<section id="projects" class="section">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold mb-4">Featured Projects</h2>
+      <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        Here are some of my recent projects that showcase my expertise
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Project 1 -->
+      <div class="card group overflow-hidden">
+        <div class="relative overflow-hidden">
+          <img
+            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/21d61614-fa8e-486d-af92-066e3ac76ff8.png"
+            alt="E-Commerce Platform"
+            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-2">E-Commerce Platform</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            A full-featured e-commerce solution with payment integration, inventory management, and analytics dashboard.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span
+              class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded">React</span>
+            <span
+              class="text-xs px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 rounded">Node.js</span>
+            <span
+              class="text-xs px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 rounded">MongoDB</span>
+          </div>
+          <div class="flex space-x-4">
+            <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">View Live</a>
+            <a href="#" class="text-gray-600 dark:text-gray-400 hover:underline"
+              onclick="openProject('E-Commerce Platform', 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/21d61614-fa8e-486d-af92-066e3ac76ff8.png', 'A full-featured e-commerce solution with payment integration, inventory management, and analytics dashboard.', 'https://github.com/username/ecommerce-project')">
+              Source Code
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="card group overflow-hidden">
+        <div class="relative overflow-hidden">
+          <img
+            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fce109e1-612b-4d6f-96ba-6c4b646da3cf.png"
+            alt="Task Management App"
+            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-2">Task Management App</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            A collaborative task management tool with real-time updates, drag-and-drop interface, and team workspaces.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span
+              class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded">React</span>
+            <span
+              class="text-xs px-2 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-200 rounded">Redux</span>
+            <span
+              class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-200 rounded">Firebase</span>
+          </div>
+          <div class="flex space-x-4">
+            <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">View Live</a>
+            <a href="#" class="text-gray-600 dark:text-gray-400 hover:underline"
+              onclick="openProject('Task Management App', 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fce109e1-612b-4d6f-96ba-6c4b646da3cf.png', 'A collaborative task management tool with real-time updates, drag-and-drop interface, and team workspaces.', 'https://github.com/username/task-manager')">
+              Source Code
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 Example -->
+      <div class="card group overflow-hidden">
+        <div class="relative overflow-hidden">
+          <img
+            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/83ccff8d-0b8b-40af-92d6-c86eb2a38809.png"
+            alt="Healthcare application showing patient records and appointment scheduling calendar interface"
+            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center mb-2">
+            <h3 class="text-xl font-semibold">Healthcare System</h3>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            HIPAA-compliant healthcare management system with patient records, appointment scheduling, and telemedicine.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span
+              class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded">React</span>
+            <span
+              class="text-xs px-2 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-200 rounded">Redux</span>
+            <span
+              class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-200 rounded">Firebase</span>
+          </div>
+          <div class="flex space-x-4">
+            <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">View Live</a>
+            <a href="#" class="text-gray-600 dark:text-gray-400 hover:underline"
+              onclick="openProject('Task Management App', 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/83ccff8d-0b8b-40af-92d6-c86eb2a38809.png', 'A collaborative task management tool with real-time updates, drag-and-drop interface, and team workspaces.', 'https://github.com/username/task-manager')">
+              Source Code
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Load More Button -->
+    <div class="text-center mt-8">
+      <a href="projects.html" class="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded shadow hover:bg-blue-700 transition">
+        Load More Projects
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  function openProject(title, image, description, link) {
+    localStorage.setItem('projectTitle', title);
+    localStorage.setItem('projectImage', image);
+    localStorage.setItem('projectDescription', description);
+    localStorage.setItem('projectLink', link);
+    window.location.href = 'source.html';
+  }
+</script>
+
+<!-- Projects Section -->
+    <section id="projects" class="section" style="display:none;">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Featured Projects</h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Here are some of my recent projects that showcase my expertise
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="card group overflow-hidden">
+                    <div class="relative overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/21d61614-fa8e-486d-af92-066e3ac76ff8.png" alt="Modern e-commerce dashboard with analytics charts and product management interface" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <h3 class="text-xl font-semibold">E-Commerce Platform</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            A full-featured e-commerce solution with payment integration, inventory management, and analytics dashboard.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded">React</span>
+                            <span class="text-xs px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 rounded">Node.js</span>
+                            <span class="text-xs px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 rounded">MongoDB</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">View Live</a>
+                            <a href="source.html" class="text-gray-600 dark:text-gray-400 hover:underline">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="card group overflow-hidden">
+                    <div class="relative overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fce109e1-612b-4d6f-96ba-6c4b646da3cf.png" alt="Task management application interface with drag-and-drop functionality and team collaboration features" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <h3 class="text-xl font-semibold">Task Management App</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            A collaborative task management tool with real-time updates, drag-and-drop interface, and team workspaces.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded">React</span>
+                            <span class="text-xs px-2 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-200 rounded">Redux</span>
+                            <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-200 rounded">Firebase</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">View Live</a>
+                            <a href="#" class="text-gray-600 dark:text-gray-400 hover:underline">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="card group overflow-hidden">
+                    <div class="relative overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/83ccff8d-0b8b-40af-92d6-c86eb2a38809.png" alt="Healthcare application showing patient records and appointment scheduling calendar interface" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <h3 class="text-xl font-semibold">Healthcare System</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            HIPAA-compliant healthcare management system with patient records, appointment scheduling, and telemedicine.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-2 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200 rounded">TypeScript</span>
+                            <span class="text-xs px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 rounded">NestJS</span>
+                            <span class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded">PostgreSQL</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">View Live</a>
+                            <a href="#" class="text-gray-600 dark:text-gray-400 hover:underline">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- Certifications Section -->
+<section id="certifications" class="section">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold mb-4">Certifications</h2>
+      <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        Here are some of my certifications showcasing my skills and achievements
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+<!-- Certification 1 -->
+    <div class="card group overflow-hidden cursor-pointer" 
+         onclick="openCertificate('Python Certification', 'images/Certification/Internship on Python.png', 'Pantech Solution')">
+      <div class="relative overflow-hidden">
+        <img src="images/Certification/Internship on Python.png" alt="Python Certificate" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+      </div>
+      <div class="p-6">
+        <h3 class="text-xl font-semibold mb-2 text-gray">Python Certification</h3>
+        <p class="text-gray mb-4">Issued by Pantech Solution</p>
+      </div>
+    </div>
+
+    <!-- Certification 2 -->
+    <div class="card group overflow-hidden cursor-pointer" 
+         onclick="openCertificate('Machine Learning', 'images/Certification/Internship on Machine Learning.png', 'Pantech Solution')">
+      <div class="relative overflow-hidden">
+        <img src="images/Certification/Internship on Machine Learning.png" alt="Machine Learning Certificate" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+      </div>
+      <div class="p-6">
+        <h3 class="text-xl font-semibold mb-2 text-gray">Machine Learning Certification</h3>
+        <p class="text-gray mb-4">Issued by Pantech Solution</p>
+      </div>
+    </div>
+
+     <!-- Certification 3 -->
+    <div class="card group overflow-hidden cursor-pointer" 
+         onclick="openCertificate('Artificial Intelligence', 'images/Certification/Internship on AI.png', 'Pantech Solution')">
+      <div class="relative overflow-hidden">
+        <img src="images/Certification/Internship on AI.png" alt="Artificial Intelligence Certificate" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+      </div>
+      <div class="p-6">
+        <h3 class="text-xl font-semibold mb-2 text-gray">Artificial Intelligence Certification</h3>
+        <p class="text-gray mb-4">Issued by Pantech Solution</p>
+      </div>
+    </div>
+
+
+    </div>
+
+    <!-- View More Button -->
+    <div class="text-center mt-8">
+      <a href="certifications.html" 
+         class="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition">
+        View All Certifications
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function openCertificate(title, image, issuedBy) {
+      localStorage.setItem('certificateTitle', title);
+      localStorage.setItem('certificateImage', image);
+      localStorage.setItem('certificateIssuedBy', issuedBy);
+	  localStorage.setItem('currentSection', 'Certifications');
+      window.location.href = 'viewcertification.html';
+    }
+  </script>
+</section>
+
+
+    <!-- Experience Section -->
+    <section id="experience" class="section bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Work Experience</h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    My professional journey and key contributions
+                </p>
+            </div>
+            <div class="relative">
+                <!-- Vertical timeline -->
+                <div class="border-l-2 border-gray-200 dark:border-gray-700 absolute h-full top-0 left-4"></div>
+                <!-- Timeline items -->
+                <div class="space-y-12 pl-8">
+                    <!-- Experience 1 -->
+                    <div class="relative timeline-item">
+                        <div class="card p-6 pl-10">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                <h3 class="text-xl font-semibold">Senior Full Stack Developer</h3>
+                                <span class="text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full">2021 - Present</span>
+                            </div>
+                            <h4 class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">Tech Solutions Inc.</h4>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                Leading a team of developers to build and maintain enterprise-level web applications. Designed scalable architecture and implemented CI/CD pipelines.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-200 rounded">React</span>
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-200 rounded">Node.js</span>
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-200 rounded">AWS</span>
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-200 rounded">Kubernetes</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Experience 2 -->
+                    <div class="relative timeline-item">
+                        <div class="card p-6 pl-10">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                <h3 class="text-xl font-semibold">Full Stack Developer</h3>
+                                <span class="text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full">2018 - 2021</span>
+                            </div>
+                            <h4 class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">Digital Innovations Co.</h4>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                Developed multiple web applications for clients across various industries. Implemented responsive designs and optimized backend performance.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-200 rounded">Angular</span>
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-200 rounded">Express</span>
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-200 rounded">MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Experience 3 -->
+                    <div class="relative timeline-item">
+                        <div class="card p-6 pl-10">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                <h3 class="text-xl font-semibold">Junior Web Developer</h3>
+                                <span class="text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full">2016 - 2018</span>
+                            </div>
+                            <h4 class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">Web Creations LLC</h4>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                Built and maintained client websites. Worked with WordPress and custom PHP applications.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-200 rounded">HTML/CSS</span>
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-200 rounded">JavaScript</span>
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-200 rounded">PHP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Have a project in mind or want to collaborate? Feel free to reach out!
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+  <form id="contact-form" class="space-y-6" action="https://api.web3forms.com/submit" method="POST">
+    <!-- Web3Forms Access Key -->
+    <input type="hidden" name="access_key" value="93fd0998-ceb5-408f-94cf-596aa596763a">
+    <!-- Honeypot Field (anti-spam) -->
+    <input type="text" name="honeypot" style="display:none">
+    <!-- Redirect URL on success -->
+    <input type="hidden" name="redirect" value="thankyou.html">
+
+    <div>
+      <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
+      <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800" required>
+    </div>
+
+    <div>
+      <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+      <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800" required>
+    </div>
+
+    <div>
+      <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Subject</label>
+      <input type="text" id="subject" name="subject" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800" required>
+    </div>
+
+    <div>
+      <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
+      <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800" required></textarea>
+    </div>
+
+    <button type="submit" class="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors">
+      Send Message
+    </button>
+  </form>
+</div>
+
+
+                <div>
+                    <div class="card p-8 h-full">
+                        <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400">Location</h4>
+                                    <p class="text-base text-gray-800 dark:text-gray-200">Maharashtra, India</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400">Email</h4>
+                                    <a href="mailto:kaustubhrmahamuni@gmail.com" class="text-base text-gray-800 dark:text-gray-200">kaustubhrmahamuni@gmail</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400">Phone</h4>
+                                    <a href="tel:+918007886007" class="text-base text-gray-800 dark:text-gray-200">+91 8007886007</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <h4 class="text-lg font-medium mb-4">Connect With Me</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="h-10 w-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="h-10 w-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="h-10 w-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="h-10 w-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                    <i class="fab fa-stack-overflow"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="flex items-center justify-center md:justify-start space-x-2 mb-4 md:mb-0">
+                    <!-- <span class="text-xl font-bold gradient-text">DevPort</span> -->
+                </div>
+                <div class="flex justify-center md:justify-end space-x-8">
+                    <a href="#home" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Home</a>
+                    <a href="#skills" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Skills</a>
+                    <a href="#projects" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
+                    <a href="#experience" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Experience</a>
+                    <a href="#contact" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-200 dark:border-gray-800 pt-8 md:flex md:items-center md:justify-between">
+                <p class="text-sm text-gray-500 dark:text-gray-400 text-center md:text-left">
+                    © 2023 Kaustubh Mahamuni. All rights reserved.
+                </p>
+                <div class="mt-4 md:mt-0 flex justify-center md:justify-end">
+                    <a href="#" class="text-xs text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 mr-4">Privacy Policy</a>
+                    <a href="#" class="text-xs text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Dark mode toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Check for saved user preference
+        if (localStorage.getItem('theme') === 'dark' || 
+            (!localStorage.getItem('theme') && 
+            window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Form submission
+        const contactForm = document.getElementById('contact-form');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Here you would typically send the data to a server
+            console.log('Form submitted:', data);
+            
+            // Show success message
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
+

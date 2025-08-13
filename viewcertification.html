@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certificate Viewer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+
+  <!-- Navbar -->
+  <nav class="w-full bg-white dark:bg-gray-800 shadow-md p-4 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <a href="index.html" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
+        ← Home
+      </a>
+      <h1 class="text-xl font-bold text-gray-800 dark:text-gray-100" id="breadcrumb-page">Certifications</h1>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2 text-gray-600 dark:text-gray-300 text-sm" aria-label="Breadcrumb">
+    <ol class="list-reset flex">
+      <li><a href="index.html" class="hover:underline">Home</a></li>
+      <li><span class="mx-2">/</span></li>
+      <li id="breadcrumb-section">Certifications</li>
+      <li id="breadcrumb-view" class="hidden"><span class="mx-2">/</span><span id="breadcrumb-view-text"></span></li>
+    </ol>
+  </nav>
+
+  <!-- Certificate Display -->
+  <div class="flex flex-col justify-center items-center p-6 min-h-[calc(100vh-64px)]">
+    <h1 id="title" class="text-2xl font-bold mb-4"></h1>
+    <img id="image" class="max-w-full md:max-w-3xl h-auto rounded-lg shadow-lg mb-4" alt="Certificate" />
+    <p id="issuedBy" class="text-gray-600 dark:text-gray-400 text-lg"></p>
+  </div>
+
+  <script>
+    window.onload = function () {
+      const title = localStorage.getItem('certificateTitle');
+      const image = localStorage.getItem('certificateImage');
+      const issuedBy = localStorage.getItem('certificateIssuedBy');
+      const section = localStorage.getItem('currentSection') || 'Certifications';
+
+      document.getElementById('title').textContent = title || 'Certificate';
+      document.getElementById('image').src = image || '';
+      document.getElementById('issuedBy').textContent = issuedBy ? `Issued by ${issuedBy}` : '';
+
+      document.getElementById('breadcrumb-section').textContent = section;
+      if(title){
+        document.getElementById('breadcrumb-view-text').textContent = title;
+        document.getElementById('breadcrumb-view').classList.remove('hidden');
+      }
+    };
+  </script>
+
+</body>
+</html>

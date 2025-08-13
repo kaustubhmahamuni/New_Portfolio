@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Details</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+
+  <!-- Navbar -->
+  <nav class="w-full bg-white dark:bg-gray-800 shadow-md p-4 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <a href="index.html" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
+        ← Home
+      </a>
+      <h1 class="text-xl font-bold text-gray-800 dark:text-gray-100" id="breadcrumb-page">Projects</h1>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2 text-gray-600 dark:text-gray-300 text-sm" aria-label="Breadcrumb">
+    <ol class="list-reset flex">
+      <li><a href="index.html" class="hover:underline">Home</a></li>
+      <li><span class="mx-2">/</span></li>
+      <li id="breadcrumb-section">Projects</li>
+      <li id="breadcrumb-view" class="hidden"><span class="mx-2">/</span><span id="breadcrumb-view-text"></span></li>
+    </ol>
+  </nav>
+
+  <!-- Project Content -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col items-center">
+    <h1 id="title" class="text-3xl font-bold mb-4"></h1>
+    <img id="image" class="max-w-full md:max-w-3xl h-auto rounded-lg shadow-lg mb-4" alt="Project Image" />
+    <p id="description" class="text-gray-700 dark:text-gray-300 mb-4 text-center"></p>
+    <a id="link" href="#" target="_blank" class="px-6 py-3 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+      View Source Code
+    </a>
+  </section>
+
+  <script>
+    window.onload = function() {
+      const title = localStorage.getItem('projectTitle');
+      const image = localStorage.getItem('projectImage');
+      const description = localStorage.getItem('projectDescription');
+      const link = localStorage.getItem('projectLink');
+      const section = localStorage.getItem('currentSection') || 'Projects';
+
+      document.getElementById('title').textContent = title;
+      document.getElementById('image').src = image;
+      document.getElementById('description').textContent = description;
+      document.getElementById('link').href = link;
+
+      document.getElementById('breadcrumb-section').textContent = section;
+      if(title){
+        document.getElementById('breadcrumb-view-text').textContent = title;
+        document.getElementById('breadcrumb-view').classList.remove('hidden');
+      }
+    }
+  </script>
+
+</body>
+</html>

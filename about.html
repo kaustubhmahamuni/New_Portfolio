@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me - MyPortfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+
+  <!-- Navbar -->
+  <nav class="w-full bg-white dark:bg-gray-800 shadow-md p-4 sticky top-0 z-50 ">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <a href="index.html" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
+        ← Back to Home
+      </a>
+      <h1 class="text-xl font-bold text-gray-800 dark:text-gray-100">About Me</h1>
+    </div>
+  </nav>
+
+  <!-- Hero / Introduction Section -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col md:flex-row items-center gap-8">
+    <div class="md:w-1/2">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm Kaustubh Mahamuni</h1>
+      <p class="text-gray-600 dark:text-gray-300 mb-6 text-lg">
+        I'm a Junior Software Developer with a BE in Computer Engineering and currently pursuing an MBA in Business Analytics. I love building responsive, dynamic, and interactive web applications with modern technologies like React, Node.js, and ASP.NET.
+      </p>
+      <p class="text-gray-600 dark:text-gray-300 text-lg">
+        I have hands-on experience with Python, C & C++, MySQL, MongoDB, HTML, JavaScript, CSS, Power BI, REACT.JS, NODE.JS, and ASP.NET. I enjoy solving problems and creating scalable applications.
+      </p>
+    </div>
+    <div class="md:w-1/2 flex justify-center">
+      <img src="hero.jpeg" alt="Kaustubh Mahamuni" class="rounded-lg shadow-lg max-w-full h-auto">
+    </div>
+  </section>
+
+<!-- About Me Section -->
+    <section id="about" class="section py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-4">About Me</h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">
+                Hi! I’m <strong>Kaustubh Mahamuni</strong>, a passionate Full Stack Developer with expertise in React.js, Node.js, ASP.NET, Python, and SQL/MongoDB. I love turning ideas into functional, user-friendly applications and building digital experiences that make life easier.
+            </p>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                With hands-on experience in projects ranging from dynamic web applications and portfolio websites to AI-driven solutions like face mask detection systems, I focus on writing clean, maintainable code while learning the latest technologies.
+            </p>
+            <p class="text-gray-600 dark:text-gray-300">
+                Currently pursuing my MBA in Business Analytics, I combine technical skills with business insights to solve real-world problems efficiently. I’m enthusiastic about continuous learning, collaborating on innovative projects, and contributing to impactful solutions.
+            </p>
+        </div>
+    </section>
+
+    
+<!-- Education Section -->
+<section id="education" class="section py-20 bg-gray-100 dark:bg-gray-900">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold mb-4">Education</h2>
+      <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        My academic journey and qualifications
+      </p>
+    </div>
+    <div class="relative">
+      <div class="border-l-2 border-gray-200 dark:border-gray-700 absolute h-full top-0 left-4"></div>
+      <div class="space-y-12 pl-8">
+        <!-- MBA -->
+        <div class="relative timeline-item">
+          <div class="card p-6 pl-10">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+              <h3 class="text-xl font-semibold">MBA in Business Analytics</h3>
+              <span class="text-sm bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 px-3 py-1 rounded-full">2024 - 2026</span>
+            </div>
+            <h4 class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <a href="gallery.html"
+                 class="hover:underline text-blue-600 dark:text-blue-400"
+                 onclick="localStorage.setItem('selectedCollege','Dr. D. Y. Patil Vidyapeeth, Pune')">
+                 Dr. D. Y. Patil Vidyapeeth, Pune
+              </a>
+            </h4>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              Pursuing MBA with a focus on business analytics, data-driven decision-making, and advanced analytics tools.
+            </p>
+          </div>
+        </div>
+        <!-- BE -->
+        <div class="relative timeline-item">
+          <div class="card p-6 pl-10">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+              <h3 class="text-xl font-semibold">Bachelor of Engineering in Computer Engineering</h3>
+              <span class="text-sm bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 px-3 py-1 rounded-full">2020 - 2024</span>
+            </div>
+            <h4 class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <a href="gallery.html"
+                 class="hover:underline text-blue-600 dark:text-blue-400"
+                 onclick="localStorage.setItem('selectedCollege','Dr. D. Y. Patil Institute of Technology, Pune')">
+                 Dr. D. Y. Patil Institute of Technology, Pune
+              </a>
+            </h4>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              Completed BE in Computer Engineering, focusing on software development, algorithms, and web technologies.
+            </p>
+          </div>
+        </div>
+        <!-- Higher Secondary -->
+        <div class="relative timeline-item">
+          <div class="card p-6 pl-10">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+              <h3 class="text-xl font-semibold">Higher Secondary School</h3>
+              <span class="text-sm bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 px-3 py-1 rounded-full">2018 - 2020</span>
+            </div>
+            <h4 class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <a href="gallery.html"
+                 class="hover:underline text-blue-600 dark:text-blue-400"
+                 onclick="localStorage.setItem('selectedCollege','Dr. D. Y. Patil ACS Junior College, Pune')">
+                 Dr. D. Y. Patil ACS Junior College, Pune
+              </a>
+            </h4>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              Completed higher secondary education with a focus on Science and Mathematics.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Work Experience</h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    My professional journey and key contributions
+                </p>
+            </div>
+            <div class="relative">
+                <div class="border-l-2 border-gray-200 dark:border-gray-700 absolute h-full top-0 left-4"></div>
+                <div class="space-y-12 pl-8">
+                    <!-- Senior Full Stack Developer -->
+                    <div class="relative timeline-item">
+                        <div class="card p-6 pl-10">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                <h3 class="text-xl font-semibold">Senior Full Stack Developer</h3>
+                                <span class="text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full">2021 - Present</span>
+                            </div>
+                            <h4 class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">Tech Solutions Inc.</h4>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                Leading a team of developers to build and maintain enterprise-level web applications. Designed scalable architecture and implemented CI/CD pipelines.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-200 rounded">React</span>
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-200 rounded">Node.js</span>
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-200 rounded">AWS</span>
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-200 rounded">Kubernetes</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Full Stack Developer -->
+                    <div class="relative timeline-item">
+                        <div class="card p-6 pl-10">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                <h3 class="text-xl font-semibold">Full Stack Developer</h3>
+                                <span class="text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full">2018 - 2021</span>
+                            </div>
+                            <h4 class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">Digital Innovations Co.</h4>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                Developed multiple web applications for clients across various industries. Implemented responsive designs and optimized backend performance.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-200 rounded">Angular</span>
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-200 rounded">Express</span>
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-200 rounded">MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Junior Web Developer -->
+                    <div class="relative timeline-item">
+                        <div class="card p-6 pl-10">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                <h3 class="text-xl font-semibold">Junior Web Developer</h3>
+                                <span class="text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full">2016 - 2018</span>
+                            </div>
+                            <h4 class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">Web Creations LLC</h4>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                Built and maintained client websites. Worked with WordPress and custom PHP applications.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-200 rounded">HTML/CSS</span>
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-200 rounded">JavaScript</span>
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-200 rounded">PHP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+	
