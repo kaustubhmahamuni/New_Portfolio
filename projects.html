@@ -6,12 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>All Projects</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .card { @apply bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-lg transition-shadow duration-300 border border-gray-100 dark:border-gray-700; }
-  </style>
 </head>
 
 <body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+
   <!-- Navbar -->
   <nav class="w-full bg-white dark:bg-gray-800 shadow-md p-4 sticky top-0 z-50">
     <div class="max-w-6xl mx-auto flex justify-between items-center">
@@ -26,17 +24,14 @@
   </section>
 
   <script>
-    // ***** Fill/adjust links & images here *****
-    // Tip: set live:"#" if you don't have a live link yet. Same for source.
     const projects = [
-      // ---- Your requested additions ----
       {
         title: "Music Player App",
         image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1200&auto=format&fit=crop",
         description: "Custom UI music player with playlist persistence, last-play resume, and keyboard controls.",
         tech: ["HTML", "Tailwind", "JavaScript", "Json"],
-        live: "https://kaustubhmahamuni.github.io/Music_player/" // TODO: paste your live URL
-        source: "#" // TODO: paste repo URL
+        live: "https://kaustubhmahamuni.github.io/Music_player/",
+        source: "#"
       },
       {
         title: "Portfolio Website",
@@ -44,14 +39,14 @@
         description: "Modern, responsive developer portfolio showcasing projects, skills, and certifications.",
         tech: ["React", "Tailwind", "Javascript"],
         live: "https://kaustubhmahamuni.github.io/New_Portfolio/index.html",
-        source: "#" // TODO: paste repo URL if public
+        source: "#"
       },
       {
         title: "Token Display Management",
         image: "https://images.unsplash.com/photo-1526498460520-4c246339dccb?q=80&w=1200&auto=format&fit=crop",
         description: "Real-time token system for 15 rooms with serving/next tokens, resets, and admin controls.",
         tech: ["React", "ASP.NET Core", "SQL Server"],
-        live: "https://kaustubhmahamuni.github.io/token-display-app/", // TODO: paste live URL
+        live: "https://kaustubhmahamuni.github.io/token-display-app/",
         source: "#"
       },
       {
@@ -59,7 +54,7 @@
         image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
         description: "Marketing site with product gallery, inquiry forms, and SEO-friendly pages.",
         tech: ["React", "Tailwind", "Forms"],
-        live: "acegarden.in", // TODO: paste live URL
+        live: "https://acegarden.in",
         source: "#"
       },
       {
@@ -70,32 +65,6 @@
         live: "#",
         source: "#"
       }
-
-      // // ---- Existing examples (kept, same UI) ----
-      // {
-      //   title: "E-Commerce Platform",
-      //   image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/21d61614-fa8e-486d-af92-066e3ac76ff8.png",
-      //   description: "A full-featured e-commerce solution with payment integration, inventory management, and analytics dashboard.",
-      //   tech: ["React", "Node.js", "MongoDB"],
-      //   live: "#",
-      //   source: "https://github.com/username/ecommerce-project"
-      // },
-      // {
-      //   title: "Task Management App",
-      //   image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fce109e1-612b-4d6f-96ba-6c4b646da3cf.png",
-      //   description: "A collaborative task management tool with real-time updates, drag-and-drop interface, and team workspaces.",
-      //   tech: ["React", "Redux", "Firebase"],
-      //   live: "#",
-      //   source: "https://github.com/username/task-manager"
-      // },
-      // {
-      //   title: "Healthcare System",
-      //   image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/83ccff8d-0b8b-40af-92d6-c86eb2a38809.png",
-      //   description: "HIPAA-compliant healthcare management system with patient records, appointment scheduling, and telemedicine.",
-      //   tech: ["React", "Redux", "Firebase"],
-      //   live: "#",
-      //   source: "https://github.com/username/task-manager"
-      // }
     ];
 
     function projectCardHTML(p) {
@@ -103,9 +72,8 @@
         <span class="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded">${t}</span>
       `).join("");
 
-      // Keep the same UI & behavior: View Live is a link, Source uses openProject() to go to source.html
       return `
-        <div class="card group overflow-hidden">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-lg transition-shadow duration-300 border border-gray-100 dark:border-gray-700 group overflow-hidden">
           <div class="relative overflow-hidden">
             <img src="${p.image}" alt="${p.title}" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -115,11 +83,12 @@
             <p class="text-gray-600 dark:text-gray-300 mb-4">${p.description}</p>
             <div class="flex flex-wrap gap-2 mb-4">${techBadges}</div>
             <div class="flex space-x-4">
-              <a href="${p.live || '#'}" target="_blank" rel="noopener" class="text-blue-600 dark:text-blue-400 hover:underline">View Live</a>
-              <a href="#" class="text-gray-600 dark:text-gray-400 hover:underline" onclick="openProject('${encodeURIComponent(p.title)}', '${encodeURIComponent(p.image)}', '${encodeURIComponent(p.description)}', '${encodeURIComponent(p.source || '#')}')">Source Code</a>
+              <a href="${p.live}" target="_blank" rel="noopener" class="text-blue-600 dark:text-blue-400 hover:underline">View Live</a>
+              <a href="#" class="text-gray-600 dark:text-gray-400 hover:underline" onclick="openProject('${encodeURIComponent(p.title)}', '${encodeURIComponent(p.image)}', '${encodeURIComponent(p.description)}', '${encodeURIComponent(p.source)}')">Source Code</a>
             </div>
           </div>
-        </div>`;
+        </div>
+      `;
     }
 
     function renderProjects() {
@@ -140,4 +109,3 @@
   </script>
 </body>
 </html>
-
