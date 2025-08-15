@@ -100,11 +100,11 @@
         <!-- Desktop Menu -->
         <nav class="hidden md:flex items-center space-x-8">
           <a href="#home" class="font-medium hover:text-primary transition-colors">Home</a>
+          <a href="#about" class="font-medium hover:text-primary transition-colors">About</a>
           <a href="#skills" class="font-medium hover:text-primary transition-colors">Skills</a>
           <a href="#projects" class="font-medium hover:text-primary transition-colors">Projects</a>
           <a href="#experience" class="font-medium hover:text-primary transition-colors">Experience</a>
           <a href="#contact" class="font-medium hover:text-primary transition-colors">Contact</a>
-          <a href="about.html" class="font-medium hover:text-primary transition-colors">About</a>
 
         </nav>
 
@@ -123,6 +123,8 @@
       <div class="px-4 py-3 space-y-2 backdrop-blur-sm bg-white/80">
         <a href="#home"
           class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">Home</a>
+        <a href="#about"
+          class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">About</a>
         <a href="#skills"
           class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">Skills</a>
         <a href="#projects"
@@ -131,8 +133,6 @@
           class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">Experience</a>
         <a href="#contact"
           class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">Contact</a>
-        <a href="about.html"
-          class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">About</a>
       </div>
     </div>
   </header>
@@ -184,6 +184,78 @@
             <img src="Hero.jpeg" alt="Professional portrait of a full stack developer with a modern office background"
               class="w-full h-auto object-cover" />
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-white">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">About Me</h2>
+    </div>
+    <div class="flex flex-col md:flex-row gap-12">
+      <div class="md:w-4/1">
+        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Who I Am</h3>
+        <p class="text-gray-600 mb-6">I'm a passionate full-stack developer with 1+ years of experience building web
+          applications that solve real-world problems. My journey in tech started with a curiosity about how things
+          work, and that curiosity has fueled my career ever since.</p>
+        <p class="text-gray-600 mb-6">When I'm not coding, you can find me hiking, reading sci-fi, or experimenting with
+          new cooking recipes.</p>
+        <div class="flex flex-wrap gap-4 mb-6">
+          <div class="flex items-center">
+            <i class="fas fa-map-marker-alt text-blue-600 mr-2"></i>
+            <span class="text-gray-700">Pune, Maharashtra, India</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-graduation-cap text-blue-600 mr-2"></i>
+            <span class="text-gray-700">BE. Computer Science</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-briefcase text-blue-600 mr-2"></i>
+            <span class="text-gray-700">1+ Years Experience</span>
+          </div>
+        </div>
+        <a href="assets\Kaustubh Mahamuni.pdf"
+          class="inline-flex items-center text-blue-600 hover:text-blue-800 transition">
+          Download Resume
+          <i class="fas fa-arrow-down ml-2"></i>
+        </a>
+      </div>
+      <div class="md:w-1/2">
+        <h3 class="text-2xl font-semibold text-gray-900 mb-4 my-4">My Approach</h3>
+        <div class="space-y-4">
+          <div class="flex items-start">
+            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+              <i class="fas fa-search text-blue-600"></i>
+            </div>
+            <div>
+              <h4 class="text-lg font-medium text-gray-900">Research & Planning</h4>
+              <!-- <p class="text-gray-600">I begin every project by understanding the problem deeply before writing any code.</p> -->
+            </div>
+          </div>
+          <div class="flex items-start">
+            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center mr-4">
+              <i class="fas fa-code text-purple-600"></i>
+            </div>
+            <div>
+              <h4 class="text-lg font-medium text-gray-900">Clean Code</h4>
+              <!-- <p class="text-gray-600">I write maintainable, well-documented code following best practices.</p> -->
+            </div>
+          </div>
+          <div class="flex items-start">
+            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
+              <i class="fas fa-rocket text-indigo-600"></i>
+            </div>
+            <div>
+              <h4 class="text-lg font-medium text-gray-900">Scalable Solutions</h4>
+              <!-- <p class="text-gray-600">I architect systems that can grow with your business needs.</p> -->
+            </div>
+          </div>
+          <a href="about.html" class="inline-flex items-center text-blue-600 hover:text-blue-800 transition my-6">
+            More About me
+            <i class="fas fa-arrow-right ml-2"></i>
+          </a>
         </div>
       </div>
     </div>
@@ -387,7 +459,8 @@
                 Server</span>
             </div>
             <div class="flex space-x-4">
-              <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">View Live</a>
+              <a href="https://kaustubhmahamuni.github.io/token-display-app/"
+                class="text-blue-600 dark:text-blue-400 hover:underline">View Live</a>
               <a href="#" class="text-gray-600 dark:text-gray-400 hover:underline"
                 onclick="openProject('Token Display Management', 'https://images.unsplash.com/photo-1526498460520-4c246339dccb?q=80&w=1200&auto=format&fit=crop', 'Real-time token system for 15 rooms with serving/next tokens, resets, and admin controls.', '#')">
                 Source Code
@@ -1013,8 +1086,10 @@
                 </a>
                 <a href="https://twitter.com/mahamunikaustub" target="_blank"
                   class="h-10 w-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
-                    <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-twitter-x" viewBox="0 0 16 16">
+                    <path
+                      d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
                   </svg>
                 </a>
                 <!-- <a href="https://stackoverflow.com/users/yourid" target="_blank"
