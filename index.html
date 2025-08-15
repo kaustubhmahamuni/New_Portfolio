@@ -18,8 +18,11 @@
     body {
       font-family: 'Inter', sans-serif;
       transition: background-color 0.3s, color 0.3s;
+      scroll-behavior: smooth;
     }
-
+    html {
+      scroll-behavior: smooth;
+    }
     .dark {
       --primary: #60a5fa;
       --secondary: #34d399;
@@ -138,14 +141,31 @@
   </header>
 
   <!-- JS for Mobile Toggle -->
-  <script>
-    const toggleBtn = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
+  <!-- JS for Mobile Toggle -->
+<script>
+  const toggleBtn = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuLinks = mobileMenu.querySelectorAll('a');
 
-    toggleBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+  // Toggle menu on button click
+  toggleBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  // Close menu when clicking any link
+  menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
     });
-  </script>
+  });
+
+  // Optional: Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!mobileMenu.contains(e.target) && !toggleBtn.contains(e.target)) {
+      mobileMenu.classList.add('hidden');
+    }
+  });
+</script>
 
 
 
@@ -1167,13 +1187,7 @@
       localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
     });
 
-    // Mobile menu toggle
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    mobileMenuButton.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
+    
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1215,6 +1229,17 @@
       this.reset();
     });
   </script>
-</body>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const selectedCardId = localStorage.getItem('selectedCollege');
+      if(selectedCardId) {
+        const card = document.getElementById(selectedCardId);
+        if(card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        localStorage.removeItem('selectedCollege');
+      }
+    });
+  </script>
+
+</body>
 </html>
